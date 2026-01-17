@@ -1,0 +1,284 @@
+/* Custom styles for the Health & Sanitation website */
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Dark mode styles */
+.dark {
+    color-scheme: dark;
+}
+
+/* Ensure proper dark mode inheritance */
+.dark body {
+    background-color: rgb(17 24 39);
+    color: rgb(243 244 246);
+}
+
+/* Disable transitions until theme is settled */
+.no-transition,
+.no-transition * {
+    transition: none !important;
+}
+
+/* Theme toggle icon styles */
+#theme-toggle svg {
+    transition: opacity 0.2s ease-in-out;
+}
+
+#theme-toggle-dark-icon.hidden,
+#theme-toggle-light-icon.hidden {
+    display: none !important;
+}
+
+#theme-toggle-dark-icon:not(.hidden),
+#theme-toggle-light-icon:not(.hidden) {
+    display: block !important;
+}
+
+/* Ensure theme toggle button is visible */
+#theme-toggle {
+    position: relative;
+    z-index: 10;
+}
+
+/* Navbar dropdown animation */
+.group:hover .group-hover\:opacity-100 {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.group .group-hover\:opacity-100 {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+/* Chatbot animations */
+#chatbot-window {
+    animation: slideUp 0.3s ease-out;
+}
+
+#chatbot-window.hidden {
+    animation: slideDown 0.3s ease-in;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+/* Scroll to top button animation */
+#scroll-to-top {
+    transition: all 0.3s ease;
+}
+
+#scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Chat messages styling */
+.user-message {
+    background-color: #3b82f6;
+    color: white;
+    margin-left: auto;
+    max-width: 80%;
+}
+
+.bot-message {
+    background-color: #f3f4f6;
+    color: #1f2937;
+    margin-right: auto;
+    max-width: 80%;
+}
+
+.dark .bot-message {
+    background-color: #374151;
+    color: #f9fafb;
+}
+
+/* Loading animation for chat */
+.typing-indicator {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #3b82f6;
+    animation: typing 1.4s infinite ease-in-out both;
+}
+
+.typing-indicator:nth-child(1) { animation-delay: -0.32s; }
+.typing-indicator:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes typing {
+    0%, 80%, 100% {
+        transform: scale(0);
+    }
+    40% {
+        transform: scale(1);
+    }
+}
+
+/* Map container styling */
+#map {
+    border: 1px solid #d1d5db;
+}
+
+.dark #map {
+    border-color: #4b5563;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    #chatbot-window {
+        width: calc(100vw - 2rem);
+        height: 70vh;
+        right: 1rem;
+        left: 1rem;
+    }
+    
+    #chatbot-container {
+        right: 1rem;
+        bottom: 1rem;
+    }
+}
+
+/* Service cards hover effect */
+.service-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.dark .service-card:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Custom scrollbar for chat */
+#chat-messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+#chat-messages::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.dark #chat-messages::-webkit-scrollbar-track {
+    background: #374151;
+}
+
+#chat-messages::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 10px;
+}
+
+.dark #chat-messages::-webkit-scrollbar-thumb {
+    background: #6b7280;
+}
+
+#chat-messages::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+.dark #chat-messages::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+/* Loading spinner */
+.spinner {
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #3b82f6;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Gradient backgrounds */
+.gradient-bg {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Button hover effects */
+.btn-primary {
+    background: linear-gradient(45deg, #3b82f6, #1d4ed8);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(45deg, #1d4ed8, #1e40af);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+}
+
+/* Form styling */
+.form-input {
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.2);
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 16px 24px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    z-index: 1000;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+.notification.success {
+    background-color: #10b981;
+}
+
+.notification.error {
+    background-color: #ef4444;
+}
+
+.notification.info {
+    background-color: #3b82f6;
+}
